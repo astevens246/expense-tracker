@@ -1,13 +1,9 @@
-import React, {useState} from 'react'
-import { GlobalContext } from '../context/GlobalState';
-import { useContext } from 'react';
+import React, {useState} from 'react';
 
+const AddTransaction = ({ addTransaction }) => {
 
-const AddTransaction = () => {
     const [text, setText] = useState('');
     const [amount, setAmount] = useState(0);
-
-    const { addTransaction } = useContext(GlobalContext);
 
     const onSubmit = e => {
       e.preventDefault();
@@ -17,7 +13,7 @@ const AddTransaction = () => {
         text,
         amount: +amount 
       }
-      addTransaction(newTransaction);
+      addTransaction(newTransaction); // Corrected here
     }
 
   return (
@@ -42,4 +38,4 @@ const AddTransaction = () => {
   )
 }
 
-export default AddTransaction
+export default AddTransaction;
