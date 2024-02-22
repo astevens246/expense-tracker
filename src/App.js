@@ -6,12 +6,13 @@ import IncomeExpenses
  from './components/IncomeExpenses';  
  import TransactionList from './components/TransactionList';
  import AddTransaction from './components/AddTransaction';
+import Fields from './components/Fields';
 
 function App() {
   return (
     <div>
       <Header />
-      <AddTransaction />
+      <Fields />
     </div>
   );
 }
