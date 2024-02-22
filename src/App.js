@@ -6,6 +6,7 @@ import Balance from './components/Balance';
 import IncomeExpenses from './components/IncomeExpenses';  
 import TransactionList from './components/TransactionList';
 import AddTransaction from './components/AddTransaction';
+import Fields from './components/Fields';
 import './tailwind.css';
 
 function App() {
@@ -24,11 +25,14 @@ function App() {
     <div className="min-h-screen bg-gray-200 flex flex-col items-center justify-center">
       <Header />
       <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
-        <Balance transactions={transactions} className="mb-4" />
-        <IncomeExpenses transactions={transactions} className="mb-4" />
-        <TransactionList transactions={transactions} deleteTransaction={deleteTransaction} />        <AddTransaction addTransaction={addTransaction} />
-
+        <div className="grid grid-cols-3 gap-4">
+          <Fields/>
+        </div>
       </div>
+        <IncomeExpenses transactions={transactions} className="mb-4" />
+        <TransactionList transactions={transactions} deleteTransaction={deleteTransaction} />
+        <AddTransaction addTransaction={addTransaction} />
+        <Balance transactions={transactions} className="mb-4" />
     </div>
   );
 }
