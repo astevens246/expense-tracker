@@ -23,9 +23,8 @@ const Fields = ({income, setIncome, rent, setRent, food,
     const addCategory = (category) => {
       setCategories([category, ...categories]);
     }
-    const calculateBudget = (e) => {
-        // Prevent the form from being submitted
-        e.preventDefault();
+    const calculateBudget = (event) => {
+        event.preventDefault();
         // Calculate total expenses
         const totalExpenses = +rent + +food + +transportation + +utilities + +insurance + +medical + +personal + +debt + +savings + +other;
 
@@ -38,6 +37,19 @@ const Fields = ({income, setIncome, rent, setRent, food,
     // Format remaining balance as a currency
     const formattedBalance = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(remainingBalance);
     const formattedTotalExpenses = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(totalExpenses);
+
+    const [customFields, setCustomFields] = useState([]);
+
+    const addCustomField = (event) => {
+        event.preventDefault();
+        setCustomFields([...customFields, { id: Math.random(), value: '' }]);
+    }
+
+    const handleCustomFieldChange = (id, newValue) => {
+        setCustomFields(customFields.map(field => 
+            field.id === id ? { ...field, value: newValue } : field
+        ));
+    }
     return (
         <form>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20">
@@ -140,9 +152,24 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         id="other"
                         className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
+                <div>
+                {customFields.map(field => (
+                <div key={field.id} className="mb-4">
+                    <label htmlFor={`custom-${field.id}`} className="block">Other</label>
+                    <input 
+                        value={field.value} 
+                        onChange={e => handleCustomFieldChange(field.id, e.target.value)}
+                        type="text"
+                        id={`custom-${field.id}`}
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                </div>
+            ))}
+            <button className="btn bg-blue-500 text-white px-4 py-2 rounded-md" onClick={addCustomField}>Add Category</button>
+                </div>
                 
 
             </div>
+            
             <div>
                 <button className="btn bg-blue-500 text-white px-4 py-2 rounded-md" onClick={calculateBudget}>Calculate Budget</button>
             </div>

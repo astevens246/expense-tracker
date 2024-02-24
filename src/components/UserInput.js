@@ -1,26 +1,28 @@
-// CategoryInput.js
+// UserInput.js
 import React, { useState } from 'react';
 
-function UserInput({ onAddCategory }) {
-    const [newCategory, setNewCategory] = useState('');
+const UserInput = ({ onAddField }) => {
+    const [inputValue, setInputValue] = useState('');
 
-    const handleAddCategory = () => {
-        if (newCategory) {
-            onAddCategory(newCategory);
-            setNewCategory('');
-        }
-    };
+    const handleAdd = () => {
+        onAddField(inputValue);
+        setInputValue('');
+    }
 
     return (
         <div>
-            <input 
-                value={newCategory} 
-                onChange={e => setNewCategory(e.target.value)}
-                type="text"
-                placeholder="Add new category" />
-            <button onClick={handleAddCategory}>Add Category</button>
+            <div className="mb-4">
+                <label htmlFor="savings" className="block">{inputValue}</label>
+                <input 
+                    value={inputValue} 
+                    onChange={e => setInputValue(e.target.value)}
+                    type="text"
+                    id="savings"
+                    className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+            </div>
+            <button onClick={handleAdd}>Add</button>
         </div>
     );
-}
+};
 
 export default UserInput;
