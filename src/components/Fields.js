@@ -23,7 +23,9 @@ const Fields = ({income, setIncome, rent, setRent, food,
     const addCategory = (category) => {
       setCategories([category, ...categories]);
     }
-    const calculateBudget = () => {
+    const calculateBudget = (e) => {
+        // Prevent the form from being submitted
+        e.preventDefault();
         // Calculate total expenses
         const totalExpenses = +rent + +food + +transportation + +utilities + +insurance + +medical + +personal + +debt + +savings + +other;
 
@@ -46,7 +48,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setIncome(e.target.value)}
                         type="text"
                         id="income"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="rent" className="block">Rent</label>
@@ -55,7 +57,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setRent(e.target.value)}
                         type="text"
                         id="rent"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="food" className="block">Food</label>
@@ -64,7 +66,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setFood(e.target.value)}
                         type="text"
                         id="food"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="transportation" className="block">Transportation</label>
@@ -73,7 +75,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setTransportation(e.target.value)}
                         type="text"
                         id="transportation"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="utilities" className="block">Utilities</label>
@@ -82,7 +84,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setUtilities(e.target.value)}
                         type="text"
                         id="utilities"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="insurance" className="block">Insurance</label>
@@ -91,7 +93,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setInsurance(e.target.value)}
                         type="text"
                         id="insurance"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="medical" className="block">Medical</label>
@@ -100,7 +102,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setMedical(e.target.value)}
                         type="text"
                         id="medical"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="personal" className="block">Personal</label>
@@ -109,7 +111,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setPersonal(e.target.value)}
                         type="text"
                         id="personal"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="debt" className="block">Debt</label>
@@ -118,7 +120,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setDebt(e.target.value)}
                         type="text"
                         id="debt"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="savings" className="block">Savings</label>
@@ -127,7 +129,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setSavings(e.target.value)}
                         type="text"
                         id="savings"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="other" className="block">Other</label>
@@ -136,7 +138,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         onChange={e => setOther(e.target.value)}
                         type="text"
                         id="other"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-10" />
+                        className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                 </div>
                 
 
