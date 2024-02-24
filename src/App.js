@@ -11,6 +11,18 @@ import './tailwind.css';
 
 function App() {
   const [transactions, setTransactions] = useState([]);
+  const [income, setIncome] = useState(0);
+  const [rent, setRent] = useState(0);
+  const [food, setFood] = useState(0);
+  const [transportation, setTransportation] = useState(0);
+  const [utilities, setUtilities] = useState(0);
+  const [insurance, setInsurance] = useState(0);
+  const [medical, setMedical] = useState(0);
+  const [personal, setPersonal] = useState(0);
+  const [debt, setDebt] = useState(0);
+  const [savings, setSavings] = useState(0);
+  const [other, setOther] = useState(0);
+
 
   // Define the addTransaction function
   const addTransaction = (transaction) => {
@@ -26,13 +38,21 @@ function App() {
       <Header />
       <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
         <div className="grid grid-cols-3 gap-4">
-          <Fields/>
+          <Fields income={income} setIncome={setIncome}
+          rent={rent} setRent={setRent}
+          food={food} setFood={setFood}
+          transportation={transportation} setTransportation={setTransportation}
+          utilities={utilities} setUtilities={setUtilities}
+          insurance={insurance} setInsurance={setInsurance}
+          medical={medical} setMedical={setMedical}
+          personal={personal} setPersonal={setPersonal}
+          debt={debt} setDebt={setDebt}
+          savings={savings} setSavings={setSavings}
+          other={other} setOther={setOther}/>
+
         </div>
       </div>
-        <IncomeExpenses transactions={transactions} className="mb-4" />
-        <TransactionList transactions={transactions} deleteTransaction={deleteTransaction} />
-        <AddTransaction addTransaction={addTransaction} />
-        <Balance transactions={transactions} className="mb-4" />
+
     </div>
   );
 }
