@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-200 flex flex-col items-center justify-center">
       <Header />
-      <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-6 rounded-md text-white">
         <div className="grid grid-cols-3 gap-4">
           <Fields income={income} setIncome={setIncome}
           rent={rent} setRent={setRent}

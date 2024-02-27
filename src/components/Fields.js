@@ -4,7 +4,6 @@
 // use state for each field
 // add up all expenses and subtract from income
 // display remaining amount
-import UserInput from './UserInput';
 import React from 'react'
 import { useState } from 'react';
 
@@ -55,7 +54,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
     }
     return (
         <form>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20">
                 <div className="mb-4">
                     <label htmlFor="income" className="block">Income</label>
                         <input 
@@ -145,42 +144,40 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             type="text"
                             id="savings"
                             className="border border-gray-300 rounded-md px-2 py-1 w-12" />
-                 </div>
-               
-                {customFields.map(field => (
+            </div>
+            <div>{customFields.map(field => (
                     <div key={field.id} className="mb-4">
                         <label htmlFor={`custom-${field.id}`} className="block">{field.name}</label>
-                        <input 
-                            value={field.value} 
-                            onChange={e => handleCustomFieldChange(field.id, e.target.value)}
-                            type="text"
-                            id={`custom-${field.id}`}
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                            <input 
+                                value={field.value} 
+                                onChange={e => handleCustomFieldChange(field.id, e.target.value)}
+                                type="text"
+                                id={`custom-${field.id}`}
+                                className="border border-gray-300 rounded-md px-2 py-1 w-12" />
                     </div>
                 ))}
-                <div>
-                    <input 
-                        type="text" 
-                        onChange={e => setCustomFieldName(e.target.value)}
-                        value={customFieldName}/>
-                    <button className="btn bg-blue-500 text-white px-4 py-2 rounded-md" onClick={addCustomField}>Add Category</button>
-                </div>
             </div>
+
             <div>
-                <button className="btn bg-blue-500 text-white px-4 py-2 rounded-md" onClick={calculateBudget}>Calculate Budget</button>
+                <button className="btn bg-green-500 text-white px-4 py-2 rounded-md" onClick={calculateBudget}>Calculate Budget</button>
+                <button className="btn bg-black text-white px-4 py-2 rounded-md" onClick={addCustomField}>Add Category</button>
             </div>
+               
             <div className="inc-exp-container">
                 <div>
                     <h4>Remaining Balance</h4>
                     <p className="text-green-500">{formattedBalance}</p>
                 </div>
+                
                 <div>
                     <h4>Total Expenses</h4>
                     <p className="text-red-500">{formattedTotalExpenses}</p>
                 </div>
             </div>
+        </div>
         </form>
     );
 }
 
 export default Fields;
+
