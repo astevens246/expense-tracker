@@ -14,7 +14,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
     savings, setSavings, other, setOther}) => {
 
     const [remainingBalance, setRemainingBalance] = React.useState(0);
-    const totalExpenses = +rent + +food + +transportation + +utilities + +insurance + +medical + +personal + +debt + +savings + +other;
+    const totalExpenses = +rent + +food + +transportation + +utilities + +insurance + +medical + +personal + +debt + +savings + +other ;
 
     const calculateBudget = (event) => {
         event.preventDefault();
@@ -23,7 +23,10 @@ const Fields = ({income, setIncome, rent, setRent, food,
 
         // Include custom fields in total expenses 
         for (let field of customFields) {
-            totalExpenses += parseFloat(field.value);
+            let value = parseFloat(field.value);
+            if (!isNaN(value)) {
+                totalExpenses += value;
+            }
         }
         console.log(totalExpenses);
         // Calculate remaining balance
@@ -37,13 +40,13 @@ const Fields = ({income, setIncome, rent, setRent, food,
     const formattedBalance = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(remainingBalance);
     const formattedTotalExpenses = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(totalExpenses);
     
-    const [customFields, setCustomFields] = useState([]);
-    const [customFieldName, setCustomFieldName] = useState('Enter Category');
+    const [customFields, setCustomFields] = useState([0]);
+    const [customFieldName, setCustomFieldName] = useState('');
+    
 
     const addCustomField = (event) => {
         event.preventDefault();
         setCustomFields([...customFields, { id: Math.random(), value: '0', name: customFieldName }]);
-        console.log(customFields);
     }
 
     const handleCustomFieldChange = (id, newValue) => {
@@ -62,7 +65,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => setIncome(e.target.value)}
                             type="text"
                             id="income"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12 text-black" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="rent" className="block">Rent</label>
@@ -71,7 +74,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => setRent(e.target.value)}
                             type="text"
                             id="rent"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="food" className="block">Food</label>
@@ -80,7 +83,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => setFood(e.target.value)}
                             type="text"
                             id="food"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="transportation" className="block">Transportation</label>
@@ -89,7 +92,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => setTransportation(e.target.value)}
                             type="text"
                             id="transportation"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="utilities" className="block">Utilities</label>
@@ -98,7 +101,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => setUtilities(e.target.value)}
                             type="text"
                             id="utilities"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="insurance" className="block">Insurance</label>
@@ -107,7 +110,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => setInsurance(e.target.value)}
                             type="text"
                             id="insurance"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="medical" className="block">Medical</label>
@@ -116,7 +119,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => setMedical(e.target.value)}
                             type="text"
                             id="medical"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="personal" className="block">Personal</label>
@@ -125,7 +128,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => setPersonal(e.target.value)}
                             type="text"
                             id="personal"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="debt" className="block">Debt</label>
@@ -134,7 +137,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => setDebt(e.target.value)}
                             type="text"
                             id="debt"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="savings" className="block">Savings</label>
@@ -143,41 +146,47 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => setSavings(e.target.value)}
                             type="text"
                             id="savings"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12" />
-            </div>
-            <div>{customFields.map(field => (
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
+                </div>
+                    {customFields.map(field => (
                     <div key={field.id} className="mb-4">
-                        <label htmlFor={`custom-${field.id}`} className="block">{field.name}</label>
-                            <input 
-                                value={field.value} 
-                                onChange={e => handleCustomFieldChange(field.id, e.target.value)}
-                                type="text"
-                                id={`custom-${field.id}`}
-                                className="border border-gray-300 rounded-md px-2 py-1 w-12" />
+                        <input 
+                            value={customFieldName}
+                            onChange={e => setCustomFieldName(e.target.value)}
+                            type="text"
+                            id={`custom-${field.id}`}
+                            className="text-white"
+                            style={{ backgroundColor: 'inherit' }}
+                            name={`custom-${field.id}`} />
+                        <input 
+                            value={field.value} 
+                            onChange={e => handleCustomFieldChange(field.id, e.target.value)}
+                            type="text"
+                            id={`custom-${field.id}`}
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                     </div>
                 ))}
             </div>
-
-            <div>
-                <button className="btn bg-green-500 text-white px-4 py-2 rounded-md" onClick={calculateBudget}>Calculate Budget</button>
-                <button className="btn bg-black text-white px-4 py-2 rounded-md" onClick={addCustomField}>Add Category</button>
-            </div>
-               
+            
             <div className="inc-exp-container">
-                <div>
-                    <h4>Remaining Balance</h4>
-                    <p className="text-green-500">{formattedBalance}</p>
+                    <div className="flex justify-between mb-6">
+                        <button className="btn bg-green-500 text-white px-4 py-2 rounded-md" onClick={calculateBudget}>Calculate Budget</button>
+                        <button className="btn bg-black text-white px-4 py-2 rounded-md" onClick={addCustomField}>Add Category</button>
+                    </div>
+                    <div>
+                        <h4>Remaining Balance</h4>
+                        <p className="text-green-500">{formattedBalance}</p>
+                    </div>
+                    <div>
+                        <h4>Total Expenses</h4>
+                        <p className="text-red-500">{formattedTotalExpenses}</p>
+                    </div>
                 </div>
-                
-                <div>
-                    <h4>Total Expenses</h4>
-                    <p className="text-red-500">{formattedTotalExpenses}</p>
-                </div>
-            </div>
-        </div>
-        </form>
+        </form>   
+
     );
 }
+
 
 export default Fields;
 
