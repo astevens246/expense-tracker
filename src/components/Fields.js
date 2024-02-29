@@ -49,22 +49,23 @@ const Fields = ({income, setIncome, rent, setRent, food,
     // Format remaining balance as a currency
     const formattedBalance = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(remainingBalance);
     const formattedTotalExpenses = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(totalExpenses);
-    
-
-
-    
-    
 
     const addCustomField = (event) => {
         event.preventDefault();
-        setCustomFields([...customFields, { id: Math.random(), value: '0', name: customFieldName }]);
+        setCustomFields([...customFields, { id: Math.random(), value: '0', name: '' }]);
     }
+    
 
-    const handleCustomFieldChange = (id, newValue) => {
+    const handleCustomFieldValueChange = (id, newValue) => {
         setCustomFields(customFields.map(field => 
             field.id === id ? { ...field, value: newValue } : field
         ));
-        console.log(newValue);
+    }
+    
+    const handleCustomFieldNameChange = (id, newName) => {
+        setCustomFields(customFields.map(field => 
+            field.id === id ? { ...field, name: newName } : field
+        ));
     }
     return (
         <form>
@@ -162,8 +163,8 @@ const Fields = ({income, setIncome, rent, setRent, food,
                     {customFields.map(field => (
                     <div key={field.id} className="mb-4">
                         <input 
-                            value={customFieldName}
-                            onChange={e => setCustomFieldName(e.target.value)}
+                            value={field.name}
+                            onChange={e => handleCustomFieldNameChange(field.id, e.target.value)}
                             type="text"
                             id={`custom-${field.id}`}
                             className="text-white"
@@ -171,7 +172,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             name={`custom-${field.id}`} />
                         <input 
                             value={field.value} 
-                            onChange={e => handleCustomFieldChange(field.id, e.target.value)}
+                            onChange={e => handleCustomFieldValueChange(field.id, e.target.value)}
                             type="text"
                             id={`custom-${field.id}`}
                             className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
