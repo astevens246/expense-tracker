@@ -1,6 +1,6 @@
 // add sections for each field type
 // income, rent, food, transportation, 
-// utilities, insurance, medical, personal, debt, savings, other
+// utilities, insurance, medical, personal, debt, gas, other
 // use state for each field
 // add up all expenses and subtract from income
 // display remaining amount
@@ -11,9 +11,9 @@ const Fields = ({income, setIncome, rent, setRent, food,
     setFood, transportation, setTransportation, utilities,
     setUtilities, insurance, setInsurance,
     medical, setMedical, personal, setPersonal, debt, setDebt,
-    savings, setSavings, other, setOther}) => {
+    gas, setGas, other, setOther}) => {
     
-    const [customFields, setCustomFields] = useState([0]);
+    const [customFields, setCustomFields] = useState([]);
     const [customFieldName, setCustomFieldName] = useState('');
 
     const [remainingBalance, setRemainingBalance] = React.useState(0);
@@ -21,15 +21,15 @@ const Fields = ({income, setIncome, rent, setRent, food,
     const [totalExpenses, setTotalExpenses] = useState(0);
 
     useEffect(() => {
-      const expenses = rent + food + transportation + utilities + insurance + medical + personal + debt + savings + other;
-      const customExpenses = customFields.reduce((total, field) => total + Number(field.value), 0);
-      setTotalExpenses(expenses + customExpenses);
-    }, [rent, food, transportation, utilities, insurance, medical, personal, debt, savings, other, customFields]);
+        const expenses = Number(rent) + Number(food) + Number(transportation) + Number(utilities) + Number(insurance) + Number(medical) + Number(personal) + Number(debt) + Number(gas) + Number(other);
+        const customExpenses = customFields.reduce((total, field) => total + (isNaN(Number(field.value)) ? 0 : Number(field.value)), 0);
+        setTotalExpenses(expenses + customExpenses);
+      }, [rent, food, transportation, utilities, insurance, medical, personal, debt, gas, other, customFields]);
 
     const calculateBudget = (event) => {
         event.preventDefault();
         // Calculate total expenses
-        let totalExpenses = +rent + +food + +transportation + +utilities + +insurance + +medical + +personal + +debt + +savings + +other;
+        let totalExpenses = parseFloat(rent) + parseFloat(food) + parseFloat(transportation) + parseFloat(utilities) + parseFloat(insurance) + parseFloat(medical) + parseFloat(personal) + parseFloat(debt) + parseFloat(gas) + parseFloat(other);
 
         // Include custom fields in total expenses 
         for (let field of customFields) {
@@ -52,7 +52,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
 
     const addCustomField = (event) => {
         event.preventDefault();
-        setCustomFields([...customFields, { id: Math.random(), value: '0', name: '' }]);
+        setCustomFields([...customFields, { id: Math.random(), value: '0', name: 'Enter New Category ' }]);
     }
     
 
@@ -152,12 +152,12 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="savings" className="block">Savings</label>
+                    <label htmlFor="gas" className="block">Gas</label>
                         <input 
-                            value={savings} 
-                            onChange={e => setSavings(e.target.value)}
+                            value={gas} 
+                            onChange={e => setGas(e.target.value)}
                             type="text"
-                            id="savings"
+                            id="gas"
                             className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
                 </div>
                     {customFields.map(field => (

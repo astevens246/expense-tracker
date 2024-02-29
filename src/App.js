@@ -6,7 +6,6 @@ import Fields from './components/Fields';
 import './tailwind.css';
 
 function App() {
-  const [transactions, setTransactions] = useState([]);
   const [income, setIncome] = useState(0);
   const [rent, setRent] = useState(0);
   const [food, setFood] = useState(0);
@@ -16,18 +15,9 @@ function App() {
   const [medical, setMedical] = useState(0);
   const [personal, setPersonal] = useState(0);
   const [debt, setDebt] = useState(0);
-  const [savings, setSavings] = useState(0);
+  const [gas, setGas] = useState(0);
   const [other, setOther] = useState(0);
 
-
-  // Define the addTransaction function
-  const addTransaction = (transaction) => {
-    setTransactions([transaction, ...transactions]);
-  }
-
-  const deleteTransaction = (id) => {
-    setTransactions(transactions.filter(transaction => transaction.id !== id));
-  };
 
   return (
     <div className="m-0 p-0 min-h-screen bg-gradient-to-r from-indigo-600 to-blue-300 flex flex-col items-center justify-center">
@@ -43,7 +33,7 @@ function App() {
           medical={medical} setMedical={setMedical}
           personal={personal} setPersonal={setPersonal}
           debt={debt} setDebt={setDebt}
-          savings={savings} setSavings={setSavings}
+          gas={gas} setGas={setGas}
           other={other} setOther={setOther}/>
 
         </div>
