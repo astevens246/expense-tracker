@@ -5,16 +5,26 @@
 // add up all expenses and subtract from income
 // display remaining amount
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Fields = ({income, setIncome, rent, setRent, food, 
     setFood, transportation, setTransportation, utilities,
     setUtilities, insurance, setInsurance,
     medical, setMedical, personal, setPersonal, debt, setDebt,
     savings, setSavings, other, setOther}) => {
+    
+    const [customFields, setCustomFields] = useState([0]);
+    const [customFieldName, setCustomFieldName] = useState('');
 
     const [remainingBalance, setRemainingBalance] = React.useState(0);
-    const totalExpenses = +rent + +food + +transportation + +utilities + +insurance + +medical + +personal + +debt + +savings + +other ;
+
+    const [totalExpenses, setTotalExpenses] = useState(0);
+
+    useEffect(() => {
+      const expenses = rent + food + transportation + utilities + insurance + medical + personal + debt + savings + other;
+      const customExpenses = customFields.reduce((total, field) => total + Number(field.value), 0);
+      setTotalExpenses(expenses + customExpenses);
+    }, [rent, food, transportation, utilities, insurance, medical, personal, debt, savings, other, customFields]);
 
     const calculateBudget = (event) => {
         event.preventDefault();
@@ -40,8 +50,9 @@ const Fields = ({income, setIncome, rent, setRent, food,
     const formattedBalance = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(remainingBalance);
     const formattedTotalExpenses = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(totalExpenses);
     
-    const [customFields, setCustomFields] = useState([0]);
-    const [customFieldName, setCustomFieldName] = useState('');
+
+
+    
     
 
     const addCustomField = (event) => {
