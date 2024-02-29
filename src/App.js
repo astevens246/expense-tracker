@@ -44,3 +44,11 @@ function App() {
 }
 
 export default App;
+
+// Additional Features:
+// 1. Add a button to clear all fields
+// 2. Add a button to clear a single field
+// 3. Add a section to keep track of savings
+// 4. Add multiple accounts to keep track of
+// 5. Add a section to keep track of investments
+// 6. Add a time stamp feature to keep track of when the data was entered
