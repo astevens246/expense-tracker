@@ -45,6 +45,9 @@ function App() {
 }
 
 export default App;
+//Improvements:
+// 1. Clean up code
+// 2. File organization with more components 
 
 // Additional Features:
 // 1. Add a button to clear all fields

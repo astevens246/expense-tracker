@@ -50,6 +50,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
     const formattedBalance = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(remainingBalance);
     const formattedTotalExpenses = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(totalExpenses);
 
+    // These functions handle adding the custom fields and updating their values
     const addCustomField = (event) => {
         event.preventDefault();
         setCustomFields([...customFields, { id: Math.random(), value: '0', name: 'Enter New Category ' }]);
@@ -68,6 +69,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
         ));
     }
     return (
+        // Added form to fields componenet
         <form>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20">
                 <div className="mb-4">
