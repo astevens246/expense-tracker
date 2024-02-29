@@ -174,12 +174,12 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         <button className="btn bg-black text-white px-4 py-2 rounded-md" onClick={addCustomField}>Add Category</button>
                     </div>
                     <div>
-                        <h4>Remaining Balance</h4>
-                        <p className="text-green-500">{formattedBalance}</p>
+                        <h4 className="text-4xl">Remaining Balance</h4>
+                        <p className="text-green-500 text-4xl">{formattedBalance}</p>
                     </div>
                     <div>
-                        <h4>Total Expenses</h4>
-                        <p className="text-red-500">{formattedTotalExpenses}</p>
+                        <h4 className="text-4xl">Total Expenses</h4>
+                        <p className="text-red-500 text-4xl">{formattedTotalExpenses}</p>
                     </div>
                 </div>
         </form>   
