@@ -22,11 +22,11 @@ function App() {
 
 
   return (
-    <main className="flex flex-col h-screen justify-between">
-    <div className="m-0 p-0 min-h-screen bg-gradient-to-r from-indigo-600 to-blue-300 flex flex-col items-center justify-center">
-      <Header />
-      <div className="bg-gradient-to-r from-indigo-600 to-blue-300 p-6 rounded-md text-white">
-        <div className="grid grid-cols-3 gap-4">
+    <main className="flex flex-col h-screen justify-between overflow-auto">
+     <Header />
+     <div className="bg-gradient-to-r from-indigo-600 to-blue-300 flex flex-col items-center justify-center">
+      <div className="bg-gradient-to-r from-indigo-600 to-blue-300 p-6 rounded-md text-white max-w-full w-full sm:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           <Fields income={income} setIncome={setIncome}
           rent={rent} setRent={setRent}
           food={food} setFood={setFood}
