@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import { useState } from 'react';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Fields from './components/Fields';
 import './tailwind.css';
 
@@ -21,6 +22,7 @@ function App() {
 
 
   return (
+    <main className="flex flex-col h-screen justify-between">
     <div className="m-0 p-0 min-h-screen bg-gradient-to-r from-indigo-600 to-blue-300 flex flex-col items-center justify-center">
       <Header />
       <div className="bg-gradient-to-r from-indigo-600 to-blue-300 p-6 rounded-md text-white">
@@ -39,8 +41,9 @@ function App() {
 
         </div>
       </div>
-
     </div>
+      <Footer/>
+    </main>
   );
 }
 
