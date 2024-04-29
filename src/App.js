@@ -1,12 +1,11 @@
-import './App.css';
-import React from 'react';
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Fields from './components/Fields';
+import SpendingRecord from './components/SpendingRecord';
+import About from './components/About';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Fields from './components/Fields';
-import About from './components/About';
-import Home from './components/Home';
 import './tailwind.css';
 
 function App() {
@@ -21,6 +20,21 @@ function App() {
   const [debt, setDebt] = useState(0);
   const [gas, setGas] = useState(0);
   const [other, setOther] = useState(0);
+  const [expenseRecords, setExpenseRecords] = useState([]);
+
+  const expenses = [
+    { name: 'Income', value: income },
+    { name: 'Rent', value: rent },
+    { name: 'Food', value: food },
+    { name: 'Transportation', value: transportation },
+    { name: 'Utilities', value: utilities },
+    { name: 'Insurance', value: insurance },
+    { name: 'Medical', value: medical },
+    { name: 'Personal', value: personal },
+    { name: 'Debt', value: debt },
+    { name: 'Gas', value: gas },
+    { name: 'Other', value: other },
+  ];
 
   return (
     <Router>
@@ -30,39 +44,31 @@ function App() {
           <Route path="/fields" element={
             <div className="bg-gradient-to-r from-indigo-600 to-blue-300 flex flex-col items-center justify-center">
               <div className="bg-gradient-to-r from-indigo-600 to-blue-300 p-6 rounded-md text-white max-w-full w-full sm:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  <Fields income={income} setIncome={setIncome}
-                  rent={rent} setRent={setRent}
-                  food={food} setFood={setFood}
-                  transportation={transportation} setTransportation={setTransportation}
-                  utilities={utilities} setUtilities={setUtilities}
-                  insurance={insurance} setInsurance={setInsurance}
-                  medical={medical} setMedical={setMedical}
-                  personal={personal} setPersonal={setPersonal}
-                  debt={debt} setDebt={setDebt}
-                  gas={gas} setGas={setGas}
-                  other={other} setOther={setOther}/>
-                </div>
+              <Fields 
+                income={income} setIncome={setIncome}
+                rent={rent} setRent={setRent}
+                food={food} setFood={setFood}
+                transportation={transportation} setTransportation={setTransportation}
+                utilities={utilities} setUtilities={setUtilities}
+                insurance={insurance} setInsurance={setInsurance}
+                medical={medical} setMedical={setMedical}
+                personal={personal} setPersonal={setPersonal}
+                debt={debt} setDebt={setDebt}
+                gas={gas} setGas={setGas}
+                other={other} setOther={setOther}
+                setExpenseRecords={setExpenseRecords} 
+              />
               </div>
             </div>
           } />
+          <Route path="/spending" element={<SpendingRecord records={expenseRecords} />} />
           <Route path="/about" element={<About />} />
         </Routes>
-        <Footer/>
+        <Footer />
+
       </main>
     </Router>
   );
 }
 
 export default App;
-//Improvements:
-// 1. Clean up code
-// 2. File organization with more components 
-
-// Additional Features:
-// 1. Add a button to clear all fields
-// 2. Add a button to clear a single field
-// 3. Add a section to keep track of savings
-// 4. Add multiple accounts to keep track of
-// 5. Add a section to keep track of investments
-// 6. Add a time stamp feature to keep track of when the data was entered

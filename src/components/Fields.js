@@ -12,7 +12,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
     setFood, transportation, setTransportation, utilities,
     setUtilities, insurance, setInsurance,
     medical, setMedical, personal, setPersonal, debt, setDebt,
-    gas, setGas, other, setOther}) => {
+    gas, setGas, other, setOther, setExpenseRecords}) => {
     
     const [customFields, setCustomFields] = useState([]);
     const [customFieldName, setCustomFieldName] = useState('');
@@ -45,6 +45,9 @@ const Fields = ({income, setIncome, rent, setRent, food,
 
         // Set remaining balance
         setRemainingBalance(remaining);
+
+          // Add a new record to the expenseRecords state
+        setExpenseRecords(prevRecords => [...prevRecords, { date: new Date(), totalExpenses, remaining }]);
     }
 
     // Format remaining balance as a currency
@@ -206,4 +209,3 @@ const Fields = ({income, setIncome, rent, setRent, food,
 
 
 export default Fields;
-

@@ -15,7 +15,7 @@ const Home = () => {
         <nav>
           <p>Where would you like to go?</p>
           <Link to="/fields">Expense Tracker</Link>
-          <Link to="/spending">Spending Record</Link>
+          <Link to="/spendingrecord">Spending Record</Link>
           <Link to="/about">About</Link>
         </nav>
       </div>
