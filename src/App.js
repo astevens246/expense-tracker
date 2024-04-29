@@ -25,13 +25,6 @@ function App() {
   return (
     <Router>
       <main className="flex flex-col h-screen justify-between overflow-auto">
-        <Header />
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/fields">Expense Tracker</Link>
-          <Link to="/spending">Spending Record</Link>
-          <Link to="/about">About</Link>
-        </nav>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/fields" element={
