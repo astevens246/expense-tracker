@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Fields from './components/Fields';
 import About from './components/About';
+import Home from './components/Home';
 import './tailwind.css';
 
 function App() {
@@ -27,10 +28,13 @@ function App() {
         <Header />
         <nav>
           <Link to="/">Home</Link>
+          <Link to="/fields">Expense Tracker</Link>
+          <Link to="/spending">Spending Record</Link>
           <Link to="/about">About</Link>
         </nav>
         <Routes>
-          <Route path="/" element={
+          <Route path="/" element={<Home />} />
+          <Route path="/fields" element={
             <div className="bg-gradient-to-r from-indigo-600 to-blue-300 flex flex-col items-center justify-center">
               <div className="bg-gradient-to-r from-indigo-600 to-blue-300 p-6 rounded-md text-white max-w-full w-full sm:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
