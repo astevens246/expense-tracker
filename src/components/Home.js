@@ -15,7 +15,7 @@ const Home = () => {
           <nav>
             <p className="mb-2">Where would you like to go?</p>
             <Link to="/fields" className="block mb-2 text-2xl text-orange-500 hover:text-purple-900 font-bold">Expense Tracker</Link>
-            <Link to="/spendingrecord" className="block mb-2 text-2xl text-orange-500 hover:text-purple-900 font-bold">Spending Record</Link>
+            <Link to="/spending" className="block mb-2 text-2xl text-orange-500 hover:text-purple-900 font-bold">Spending Record</Link>
             <Link to="/about" className="block mb-2 text-2xl text-orange-500 hover:text-purple-900 font-bold">About</Link> 
             </nav>
         </div>

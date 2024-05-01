@@ -18,6 +18,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
     const [customFieldName, setCustomFieldName] = useState('');
     const [remainingBalance, setRemainingBalance] = React.useState(0);
     const [totalExpenses, setTotalExpenses] = useState(0);
+    const [note, setNote] = useState('');
 
     
     useEffect(() => {
@@ -46,7 +47,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
         setRemainingBalance(remaining);
 
           // Add a new record to the expenseRecords state
-        setExpenseRecords(prevRecords => [...prevRecords, { date: new Date(), income, totalExpenses, remaining }]);
+        setExpenseRecords(prevRecords => [...prevRecords, { date: new Date(), income, totalExpenses, remaining, note: note }]);
     }
 
     // Format remaining balance as a currency
@@ -200,6 +201,10 @@ const Fields = ({income, setIncome, rent, setRent, food,
                         <h4 className="text-4xl">Total Expenses</h4>
                         <p className="text-red-500 text-4xl">{formattedTotalExpenses}</p>
                     </div>
+                </div>
+                <div>
+                    <label>Note:</label>
+                    <textarea className= "text-black" value={note} onChange={(e) => setNote(e.target.value)} />
                 </div>
         </form>   
     </>

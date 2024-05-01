@@ -14,6 +14,7 @@ const SpendingRecord = ({ records, income }) => {
                             <p className="mb-4">Income: ${record.income}</p>
                             <p className="mb-2">Total Expenses: ${record.totalExpenses}</p>
                             <p className="mb-2">Remaining Balance: ${record.remaining}</p>
+                            <p className="mb-2"> Note: {record.note}</p>
                         </div>
                     ))}
                 </div>
