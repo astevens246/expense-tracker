@@ -46,7 +46,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
         setRemainingBalance(remaining);
 
           // Add a new record to the expenseRecords state
-        setExpenseRecords(prevRecords => [...prevRecords, { date: new Date(), totalExpenses, remaining }]);
+        setExpenseRecords(prevRecords => [...prevRecords, { date: new Date(), income, totalExpenses, remaining }]);
     }
 
     // Format remaining balance as a currency

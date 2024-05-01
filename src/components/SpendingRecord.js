@@ -11,7 +11,7 @@ const SpendingRecord = ({ records, income }) => {
                         <div key={index} className="mb-4">
                             <p className="mb-2">Date: {record.date.toLocaleDateString()}</p>
                             <br />
-                            <p className="mb-4">Income: ${income}</p>
+                            <p className="mb-4">Income: ${record.income}</p>
                             <p className="mb-2">Total Expenses: ${record.totalExpenses}</p>
                             <p className="mb-2">Remaining Balance: ${record.remaining}</p>
                         </div>
