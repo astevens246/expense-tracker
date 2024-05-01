@@ -61,7 +61,7 @@ function App() {
               </div>
             </div>
           } />
-          <Route path="/spending" element={<SpendingRecord records={expenseRecords} />} />
+          <Route path="/spending" element={<SpendingRecord records={expenseRecords} income={income} />} />
           <Route path="/about" element={<About />} />
         </Routes>
         <Footer />

@@ -16,11 +16,10 @@ const Fields = ({income, setIncome, rent, setRent, food,
     
     const [customFields, setCustomFields] = useState([]);
     const [customFieldName, setCustomFieldName] = useState('');
-
     const [remainingBalance, setRemainingBalance] = React.useState(0);
-
     const [totalExpenses, setTotalExpenses] = useState(0);
 
+    
     useEffect(() => {
         const expenses = Number(rent) + Number(food) + Number(transportation) + Number(utilities) + Number(insurance) + Number(medical) + Number(personal) + Number(debt) + Number(gas) + Number(other);
         const customExpenses = customFields.reduce((total, field) => total + (isNaN(Number(field.value)) ? 0 : Number(field.value)), 0);
