@@ -74,151 +74,155 @@ const Fields = ({income, setIncome, rent, setRent, food,
     }
     return (
         <>
-        <Header />
-
-        <form>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div className="mb-4">
-                    <label htmlFor="income" className="block">Income</label>
-                        <input 
-                            value={income} 
-                            onChange={e => setIncome(e.target.value)}
-                            type="number"
-                            id="income"
-                            aria-label="Enter your income"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12 text-black " />
+        <header>
+            <Header />
+        </header>
+        
+        <main>
+            <form>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div className="mb-4">
+                        <label htmlFor="income" className="block ">Income</label>
+                            <input 
+                                value={income} 
+                                onChange={e => setIncome(e.target.value)}
+                                type="number"
+                                id="income"
+                                aria-label="Enter your income"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12 text-black " />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="rent" className="block">Rent</label>
+                            <input 
+                                value={rent} 
+                                onChange={e => setRent(e.target.value)}
+                                type="number"
+                                id="rent"
+                                aria-label="Enter your rent amount"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="food" className="block">Food</label>
+                            <input 
+                                value={food} 
+                                onChange={e => setFood(e.target.value)}
+                                type="number"
+                                id="food"
+                                aria-label="Enter your food expenses"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="transportation" className="block">Transportation</label>
+                            <input 
+                                value={transportation} 
+                                onChange={e => setTransportation(e.target.value)}
+                                type="number"
+                                id="transportation"
+                                aria-label="Enter your transportation expenses"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="utilities" className="block">Utilities</label>
+                            <input 
+                                value={utilities} 
+                                onChange={e => setUtilities(e.target.value)}
+                                type="number"
+                                id="utilities"
+                                aria-label="Enter your utilities expenses"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="insurance" className="block">Insurance</label>
+                            <input 
+                                value={insurance} 
+                                onChange={e => setInsurance(e.target.value)}
+                                type="number"
+                                id="insurance"
+                                aria-label="Enter your insurance expenses"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="medical" className="block">Medical</label>
+                            <input 
+                                value={medical} 
+                                onChange={e => setMedical(e.target.value)}
+                                type="number"
+                                id="medical"
+                                aria-label="Enter your medical expenses"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="personal" className="block">Personal</label>
+                            <input 
+                                value={personal} 
+                                onChange={e => setPersonal(e.target.value)}
+                                type="number"
+                                id="personal"
+                                aria-label="Enter your personal expenses"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="debt" className="block">Debt</label>
+                            <input 
+                                value={debt} 
+                                onChange={e => setDebt(e.target.value)}
+                                type="number"
+                                id="debt"
+                                aria-label="Enter your debt expenses"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="gas" className="block">Gas</label>
+                            <input 
+                                value={gas} 
+                                onChange={e => setGas(e.target.value)}
+                                type="number"
+                                id="gas"
+                                aria-label="Enter your gas expenses"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
+                    </div>
+                        {customFields.map(field => (
+                        <div key={field.id} className="mb-4">
+                            <input 
+                                value={field.name}
+                                onChange={e => handleCustomFieldNameChange(field.id, e.target.value)}
+                                type="text"
+                                id={`custom-${field.id}`}
+                                aria-label="Enter your custom category name"
+                                className="text-white w-full sm:w-auto md:w-auto lg:w-auto"
+                                style={{ backgroundColor: 'inherit' }}
+                                name={`custom-${field.id}`} />
+                            <input 
+                                value={field.value} 
+                                onChange={e => handleCustomFieldValueChange(field.id, e.target.value)}
+                                type="number"
+                                id={`custom-${field.id}`}
+                                aria-label="Enter your custom category expenses"
+                                className="border border-gray-900 rounded-md px-2 py-1 w-12 text-black" />
+                                </div>
+                    ))}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="rent" className="block">Rent</label>
-                        <input 
-                            value={rent} 
-                            onChange={e => setRent(e.target.value)}
-                            type="number"
-                            id="rent"
-                            aria-label="Enter your rent amount"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="food" className="block">Food</label>
-                        <input 
-                            value={food} 
-                            onChange={e => setFood(e.target.value)}
-                            type="number"
-                            id="food"
-                            aria-label="Enter your food expenses"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="transportation" className="block">Transportation</label>
-                        <input 
-                            value={transportation} 
-                            onChange={e => setTransportation(e.target.value)}
-                            type="number"
-                            id="transportation"
-                            aria-label="Enter your transportation expenses"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="utilities" className="block">Utilities</label>
-                        <input 
-                            value={utilities} 
-                            onChange={e => setUtilities(e.target.value)}
-                            type="number"
-                            id="utilities"
-                            aria-label="Enter your utilities expenses"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="insurance" className="block">Insurance</label>
-                        <input 
-                            value={insurance} 
-                            onChange={e => setInsurance(e.target.value)}
-                            type="number"
-                            id="insurance"
-                            aria-label="Enter your insurance expenses"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="medical" className="block">Medical</label>
-                        <input 
-                            value={medical} 
-                            onChange={e => setMedical(e.target.value)}
-                            type="number"
-                            id="medical"
-                            aria-label="Enter your medical expenses"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="personal" className="block">Personal</label>
-                        <input 
-                            value={personal} 
-                            onChange={e => setPersonal(e.target.value)}
-                            type="number"
-                            id="personal"
-                            aria-label="Enter your personal expenses"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="debt" className="block">Debt</label>
-                        <input 
-                            value={debt} 
-                            onChange={e => setDebt(e.target.value)}
-                            type="number"
-                            id="debt"
-                            aria-label="Enter your debt expenses"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="gas" className="block">Gas</label>
-                        <input 
-                            value={gas} 
-                            onChange={e => setGas(e.target.value)}
-                            type="number"
-                            id="gas"
-                            aria-label="Enter your gas expenses"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
-                </div>
-                    {customFields.map(field => (
-                    <div key={field.id} className="mb-4">
-                        <input 
-                            value={field.name}
-                            onChange={e => handleCustomFieldNameChange(field.id, e.target.value)}
-                            type="text"
-                            id={`custom-${field.id}`}
-                            aria-label="Enter your custom category name"
-                            className="text-white w-full sm:w-auto md:w-12 lg:w-12"
-                            style={{ backgroundColor: 'inherit' }}
-                            name={`custom-${field.id}`} />
-                        <input 
-                            value={field.value} 
-                            onChange={e => handleCustomFieldValueChange(field.id, e.target.value)}
-                            type="number"
-                            id={`custom-${field.id}`}
-                            aria-label="Enter your custom category expenses"
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12 text-black" />
-                            </div>
-                ))}
-            </div>
-            
-            <div className="inc-exp-container">
-                    <div className="flex justify-between mb-6">
-                        <button className="btn bg-green-500 text-white px-4 py-2 rounded-md" onClick={calculateBudget}>Calculate Budget</button>
-                        <button className="btn bg-black text-white px-4 py-2 rounded-md" onClick={addCustomField}>Add Category</button>
+                
+                <div className="inc-exp-container">
+                        <div className="flex justify-between mb-6">
+                            <button type="submit" aria-label="Submit calculate budget form" className="btn bg-green-500 text-white px-4 py-2 rounded-md" onClick={calculateBudget}>Calculate Budget</button>
+                            <button type="submit" aria-label="Submit new category form" className="btn bg-black text-white px-4 py-2 rounded-md" onClick={addCustomField}>Add Category</button>
+                        </div>
+                        <div>
+                            <h4 className="text-4xl">Remaining Balance</h4>
+                            <p className="text-green-500 text-4xl">{formattedBalance}</p>
+                        </div>
+                        <div>
+                            <h4 className="text-4xl">Total Expenses</h4>
+                            <p className="text-red-500 text-4xl">{formattedTotalExpenses}</p>
+                        </div>
                     </div>
                     <div>
-                        <h4 className="text-4xl">Remaining Balance</h4>
-                        <p className="text-green-500 text-4xl">{formattedBalance}</p>
+                        <label>Note:</label>
+                        <textarea className= "text-black" value={note} onChange={(e) => setNote(e.target.value)} />
                     </div>
-                    <div>
-                        <h4 className="text-4xl">Total Expenses</h4>
-                        <p className="text-red-500 text-4xl">{formattedTotalExpenses}</p>
-                    </div>
-                </div>
-                <div>
-                    <label>Note:</label>
-                    <textarea className= "text-black" value={note} onChange={(e) => setNote(e.target.value)} />
-                </div>
-        </form>   
+            </form>   
+        </main>
     </>
     );
 };
