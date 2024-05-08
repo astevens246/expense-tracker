@@ -77,7 +77,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
         <Header />
 
         <form>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div className="mb-4">
                     <label htmlFor="income" className="block">Income</label>
                         <input 
@@ -175,7 +175,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => handleCustomFieldNameChange(field.id, e.target.value)}
                             type="text"
                             id={`custom-${field.id}`}
-                            className="text-white"
+                            className="text-white w-full md:w-12"
                             style={{ backgroundColor: 'inherit' }}
                             name={`custom-${field.id}`} />
                         <input 
@@ -183,8 +183,8 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => handleCustomFieldValueChange(field.id, e.target.value)}
                             type="text"
                             id={`custom-${field.id}`}
-                            className="border border-gray-300 rounded-md px-2 py-1 w-12  text-black" />
-                    </div>
+                            className="border border-gray-300 rounded-md px-2 py-1 w-full md:w-12 text-black" />
+                            </div>
                 ))}
             </div>
             
