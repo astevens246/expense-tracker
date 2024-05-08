@@ -86,7 +86,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={income} 
                                 onChange={e => setIncome(e.target.value)}
-                                type="number"
+                                type="text"
                                 id="income"
                                 aria-label="Enter your income"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12 text-black " />
@@ -96,7 +96,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={rent} 
                                 onChange={e => setRent(e.target.value)}
-                                type="number"
+                                type="text"
                                 id="rent"
                                 aria-label="Enter your rent amount"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
@@ -106,7 +106,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={food} 
                                 onChange={e => setFood(e.target.value)}
-                                type="number"
+                                type="text"
                                 id="food"
                                 aria-label="Enter your food expenses"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
@@ -116,7 +116,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={transportation} 
                                 onChange={e => setTransportation(e.target.value)}
-                                type="number"
+                                type="text"
                                 id="transportation"
                                 aria-label="Enter your transportation expenses"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
@@ -126,7 +126,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={utilities} 
                                 onChange={e => setUtilities(e.target.value)}
-                                type="number"
+                                type="text"
                                 id="utilities"
                                 aria-label="Enter your utilities expenses"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
@@ -136,7 +136,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={insurance} 
                                 onChange={e => setInsurance(e.target.value)}
-                                type="number"
+                                type="text"
                                 id="insurance"
                                 aria-label="Enter your insurance expenses"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
@@ -146,7 +146,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={medical} 
                                 onChange={e => setMedical(e.target.value)}
-                                type="number"
+                                type="text"
                                 id="medical"
                                 aria-label="Enter your medical expenses"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
@@ -156,7 +156,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={personal} 
                                 onChange={e => setPersonal(e.target.value)}
-                                type="number"
+                                type="text"
                                 id="personal"
                                 aria-label="Enter your personal expenses"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
@@ -166,7 +166,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={debt} 
                                 onChange={e => setDebt(e.target.value)}
-                                type="number"
+                                type="text"
                                 id="debt"
                                 aria-label="Enter your debt expenses"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
@@ -176,7 +176,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={gas} 
                                 onChange={e => setGas(e.target.value)}
-                                type="number"
+                                type="text"
                                 id="gas"
                                 aria-label="Enter your gas expenses"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12  text-black" />
@@ -195,7 +195,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             <input 
                                 value={field.value} 
                                 onChange={e => handleCustomFieldValueChange(field.id, e.target.value)}
-                                type="number"
+                                type="text"
                                 id={`custom-${field.id}`}
                                 aria-label="Enter your custom category expenses"
                                 className="border border-gray-900 rounded-md px-2 py-1 w-12 text-black" />
