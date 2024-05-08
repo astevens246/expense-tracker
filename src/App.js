@@ -40,7 +40,7 @@ function App() {
     <Router>
       <main className="flex flex-col h-screen justify-between overflow-auto">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/expense-tracker" element={<Home />} />
           <Route path="/fields" element={
             <div className="bg-gradient-to-r from-indigo-600 to-blue-300 flex flex-col items-center justify-center">
               <div className="bg-gradient-to-r from-indigo-600 to-blue-300 p-6 rounded-md text-white max-w-full w-full sm:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto">
