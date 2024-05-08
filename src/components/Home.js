@@ -9,10 +9,9 @@ const Home = () => {
           <h1 className="text-4xl mb-4">Budget Buddy</h1>
           <p className="mb-4">
             Enter your name: 
-            <input type="text" value={name} onChange={e => setName(e.target.value)} className="ml-2 p-1 rounded border border-white" />
+            <input type="text color" value={name} onChange={e => setName(e.target.value)} className="ml-2 p-1 rounded border border-white" />
           </p>
-          {name && <p className="mb-4">Hi {name}, Welcome to Budget Buddy! We're glad you're here.</p>}
-          <nav>
+          { name && <p className="mb-4 text-3xl">Hi <span className="text-orange-500 font-bold">{name}</span>, Welcome to Budget Buddy! We're glad you're here!</p> }           <nav>
             <p className="mb-2">Where would you like to go?</p>
             <Link to="/fields" className="block mb-2 text-2xl text-orange-500 hover:text-purple-900 font-bold">Expense Tracker</Link>
             <Link to="/spending" className="block mb-2 text-2xl text-orange-500 hover:text-purple-900 font-bold">Spending Record</Link>

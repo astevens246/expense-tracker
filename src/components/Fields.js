@@ -175,7 +175,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => handleCustomFieldNameChange(field.id, e.target.value)}
                             type="text"
                             id={`custom-${field.id}`}
-                            className="text-white w-full md:w-12"
+                            className="text-white w-full sm:w-auto md:w-12 lg:w-12"
                             style={{ backgroundColor: 'inherit' }}
                             name={`custom-${field.id}`} />
                         <input 
@@ -183,7 +183,7 @@ const Fields = ({income, setIncome, rent, setRent, food,
                             onChange={e => handleCustomFieldValueChange(field.id, e.target.value)}
                             type="text"
                             id={`custom-${field.id}`}
-                            className="border border-gray-300 rounded-md px-2 py-1 w-full md:w-12 text-black" />
+                            className="border border-gray-300 rounded-md px-2 py-1 w-12 text-black" />
                             </div>
                 ))}
             </div>
